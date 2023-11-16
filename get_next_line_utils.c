@@ -52,3 +52,13 @@ char	*ft_strchr_gnl(const char *s, int c)
 		return ((char *)s + i);
 	return (NULL);
 }
+
+int     ft_strlen_gnl(const char *str)
+{
+        int i;
+
+        i = 0;
+        while (str[i] != '\0')
+                i++;
+        return (i);
+}
