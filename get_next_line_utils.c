@@ -52,5 +52,3 @@ char	*ft_strchr_gnl(const char *s, int c)
 		return ((char *)s + i);
 	return (NULL);
 }
-
-

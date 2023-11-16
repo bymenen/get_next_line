@@ -19,15 +19,17 @@ char    *get_next_line(int fd)
 
     if  (fd < 0 || BUFFER_SIZE <= 0)
         return (0);
-    full_str = read_function(fd, full_str);
-
+    full_str = read_file(fd, full_str);
+    if (!full_str)
+        return (NULL);
+    
 }
 
 /* with read function 
 we read the full file and we locate 
 all the content in the variable full_str */
 
-char *read_function(int fd, char *full_str)
+char    *read_file(int fd, char *full_str)
 {
     int     i;
     char    *temporal;
