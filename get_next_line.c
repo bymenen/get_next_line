@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 char    *get_next_line(int fd)
 {
     static  char    *full_str;
@@ -31,18 +29,24 @@ all the content in the variable full_str */
 
 char    *read_file(int fd, char *full_str)
 {
-    int     i;
+    int     byte;
     char    *temporal;
 
     temporal = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
     if  (!temporal)
         return (NULL);
-    bytes
-    i = 0;
-    while (fd)
+    byte = 1;
+    while (!ft_strchr_gnl(str, '\n') && (byte != 0))
     {
-        full_str[i] = fd;
-        i++;
+        byte = read(fd, temporal, BUFFER_SIZE);
+        if (byte == -1)
+        {
+            free(temporal);
+            return (NULL);
+        }
+        temporal[byte] = '\0';
+        str = ft_strjoin_gnl(str, temporal);
     }
+    free(temporal);
     return (full_str);
 }

@@ -22,6 +22,8 @@
 #endif
 
 char *get_next_line(int fd);
+char    *read_file(int fd, char *full_str);
+
 
 char	*ft_strjoin_gnl(char const *s1, char const *s2);
 char	*ft_strchr_gnl(const char *s, int c);
